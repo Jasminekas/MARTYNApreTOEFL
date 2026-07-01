@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOEFL Vocabulary — Topic Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Tokens ── */
+:root {
+  --ink:        #0F1923;
+  --ink-mid:    #3D4F62;
+  --ink-light:  #8A9BB0;
+  --paper:      #F8F6F0;
+  --paper-mid:  #EDEAE2;
+  --paper-dark: #E0DDD5;
+  --teal:       #00C4A1;
+  --teal-dim:   #00C4A115;
+  --teal-mid:   #00C4A130;
+  --card-bg:    #FFFFFF;
+  --sidebar-w:  260px;
+  --font-disp:  'Space Grotesk', sans-serif;
+  --font-body:  'Inter', sans-serif;
+  --ease:       cubic-bezier(.4,0,.2,1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── Layout ── */
+.layout {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+}
+
+/* ── Top bar ── */
+.topbar {
+  grid-column: 1 / -1;
+  background: var(--ink);
+  padding: 0 2rem;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.topbar-logo {
+  font-family: var(--font-disp);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.topbar-logo span { color: var(--teal); }
+
+.topbar-meta {
+  font-size: 0.75rem;
+  color: var(--ink-light);
+  letter-spacing: 0.04em;
+}
+
+.search-wrap {
+  position: relative;
+  flex: 1;
+  max-width: 340px;
+  margin: 0 2rem;
+}
+
+.search-wrap input {
+  width: 100%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 6px;
+  padding: 6px 12px 6px 34px;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  outline: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.search-wrap input::placeholder { color: var(--ink-light); }
+.search-wrap input:focus { background: rgba(255,255,255,0.13); border-color: var(--teal); }
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink-light);
+  pointer-events: none;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  background: var(--ink);
+  color: #fff;
+  padding: 1.5rem 0 3rem;
+  position: sticky;
+  top: 56px;
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink-mid) transparent;
+}
+
+.sidebar-section {
+  padding: 0 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  padding: 0.75rem 0.75rem 0.4rem;
+  display: block;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+  border: none;
+  background: transparent;
+  color: rgba(255,255,255,0.65);
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  width: 100%;
+  text-align: left;
+  text-decoration: none;
+}
+
+.nav-item:hover { background: rgba(255,255,255,0.07); color: #fff; }
+
+.nav-item.active {
+  background: var(--teal-mid);
+  color: var(--teal);
+  font-weight: 500;
+}
+
+.nav-item .icon { font-size: 1rem; flex-shrink: 0; }
+.nav-count {
+  margin-left: auto;
+  font-size: 0.7rem;
+  background: rgba(255,255,255,0.08);
+  color: var(--ink-light);
+  padding: 1px 7px;
+  border-radius: 99px;
+}
+
+.nav-item.active .nav-count {
+  background: var(--teal-mid);
+  color: var(--teal);
+}
+
+.sidebar-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: 0.75rem 1rem;
+}
+
+/* ── Main content ── */
+.main {
+  padding: 2rem 2.5rem 4rem;
+  overflow-y: auto;
+}
+
+/* ── Topic sections ── */
+.topic-section {
+  display: none;
+}
+
+.topic-section.active { display: block; }
+
+.topic-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid var(--paper-dark);
+}
+
+.topic-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.4rem;
+}
+
+.topic-title {
+  font-family: var(--font-disp);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+
+.topic-desc {
+  font-size: 0.9rem;
+  color: var(--ink-mid);
+  max-width: 560px;
+  line-height: 1.6;
+}
+
+.topic-stats {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.stat {
+  font-size: 0.75rem;
+  color: var(--ink-light);
+}
+
+.stat strong { color: var(--ink); font-weight: 600; }
+
+/* ── Controls ── */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 5px 14px;
+  border-radius: 99px;
+  border: 1px solid var(--paper-dark);
+  background: transparent;
+  color: var(--ink-mid);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.filter-btn:hover { border-color: var(--teal); color: var(--teal); }
+.filter-btn.active { background: var(--teal); border-color: var(--teal); color: #fff; font-weight: 500; }
+
+.expand-all {
+  margin-left: auto;
+  padding: 5px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--paper-dark);
+  background: transparent;
+  color: var(--ink-mid);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.expand-all:hover { border-color: var(--ink); color: var(--ink); }
+
+/* ── Vocabulary grid ── */
+.vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+}
+
+/* ── Vocab card ── */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--paper-dark);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.2s var(--ease), border-color 0.2s;
+  cursor: pointer;
+}
+
+.card:hover { border-color: var(--teal); box-shadow: 0 2px 12px rgba(0,196,161,0.1); }
+.card.open { border-color: var(--teal); }
+
+.card-top {
+  padding: 12px 14px 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.card-word-wrap { flex: 1; min-width: 0; }
+
+.card-word {
+  font-family: var(--font-disp);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.card-pos {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--teal);
+  background: var(--teal-dim);
+  padding: 1px 7px;
+  border-radius: 3px;
+  margin-top: 3px;
+  font-family: var(--font-disp);
+  letter-spacing: 0.03em;
+}
+
+.card-def {
+  font-size: 0.83rem;
+  color: var(--ink-mid);
+  line-height: 1.5;
+  padding: 0 14px 10px;
+}
+
+.card-toggle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid var(--paper-dark);
+  background: transparent;
+  color: var(--ink-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 2px;
+}
+
+.card.open .card-toggle {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #fff;
+}
+
+.card-example {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s var(--ease), padding 0.3s;
+}
+
+.card.open .card-example { max-height: 120px; }
+
+.card-example-inner {
+  border-top: 1px solid var(--paper-mid);
+  margin: 0 14px;
+  padding: 10px 0;
+  font-size: 0.81rem;
+  color: var(--ink-mid);
+  line-height: 1.55;
+  font-style: italic;
+}
+
+.card-example-inner::before {
+  content: '"';
+  color: var(--teal);
+  font-size: 1rem;
+  font-style: normal;
+  margin-right: 2px;
+}
+
+.card-example-inner::after {
+  content: '"';
+  color: var(--teal);
+  font-size: 1rem;
+  font-style: normal;
+  margin-left: 2px;
+}
+
+/* ── Search results ── */
+#search-results {
+  display: none;
+}
+
+#search-results.active {
+  display: block;
+}
+
+.search-result-header {
+  font-family: var(--font-disp);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--paper-dark);
+}
+
+.no-results {
+  color: var(--ink-light);
+  font-size: 0.9rem;
+  padding: 2rem 0;
+}
+
+/* ── Progress bar ── */
+.progress-wrap {
+  background: var(--paper-mid);
+  border-radius: 99px;
+  height: 3px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--teal);
+  border-radius: 99px;
+  transition: width 0.4s var(--ease);
+  width: 0%;
+}
+
+/* ── Mobile ── */
+.mobile-nav {
+  display: none;
+  background: var(--ink);
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+  gap: 0.5rem;
+  scrollbar-width: none;
+}
+
+.mobile-nav-btn {
+  flex-shrink: 0;
+  padding: 6px 14px;
+  border-radius: 99px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: transparent;
+  color: rgba(255,255,255,0.65);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+
+.mobile-nav-btn.active {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .mobile-nav { display: flex; }
+  .main { padding: 1.25rem 1rem 3rem; }
+  .topic-title { font-size: 1.5rem; }
+  .vocab-grid { grid-template-columns: 1fr; }
+  .search-wrap { max-width: none; }
+  .topbar-meta { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="topbar-logo">TOEFL <span>Vocab</span></div>
+    <div class="search-wrap">
+      <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="searchInput" placeholder="Search any word or phrase…" autocomplete="off">
+    </div>
+    <div class="topbar-meta">8 topics · 280+ items</div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav"></div>
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-section">
+      <span class="sidebar-label">Topics</span>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main" id="main">
+    <div id="search-results"></div>
+  </main>
+
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════════════════════
+const topics = [
+
+  {
+    id: "environment",
+    icon: "🌿",
+    title: "Environment & Climate",
+    desc: "Essential vocabulary for discussing climate change, pollution, conservation, and environmental policy — one of the most common TOEFL topics.",
+    words: [
+      { w: "carbon emissions", pos: "n.", def: "Greenhouse gases released into the atmosphere through burning fossil fuels.", ex: "Carbon emissions from the transport sector have risen sharply over the past decade." },
+      { w: "greenhouse effect", pos: "n.", def: "The trapping of the sun's heat in the Earth's atmosphere by greenhouse gases.", ex: "The greenhouse effect is a natural process, but human activity has intensified it." },
+      { w: "fossil fuels", pos: "n.", def: "Coal, oil, and natural gas — energy sources formed from ancient organic matter.", ex: "Many countries are still heavily dependent on fossil fuels for electricity generation." },
+      { w: "renewable energy", pos: "n.", def: "Energy from sources that are naturally replenished, such as wind, solar, or hydro.", ex: "Investment in renewable energy has grown dramatically since the Paris Agreement." },
+      { w: "biodiversity", pos: "n.", def: "The variety of plant and animal life in a particular habitat or on Earth.", ex: "Deforestation threatens biodiversity by destroying habitats for thousands of species." },
+      { w: "deforestation", pos: "n.", def: "The large-scale clearing of forests, typically for agriculture or development.", ex: "Deforestation in the Amazon contributes significantly to global carbon emissions." },
+      { w: "ecosystem", pos: "n.", def: "A community of living organisms interacting with each other and their environment.", ex: "The coral reef ecosystem is one of the most biodiverse on the planet." },
+      { w: "sustainability", pos: "n.", def: "The ability to maintain processes without depleting natural resources.", ex: "Sustainability has become a core principle of modern urban planning." },
+      { w: "carbon footprint", pos: "n.", def: "The total greenhouse gas emissions caused by an individual, organisation, or product.", ex: "Flying long-haul significantly increases a person's annual carbon footprint." },
+      { w: "habitat loss", pos: "n.", def: "The destruction of natural environments that species depend on for survival.", ex: "Habitat loss is the leading cause of species extinction worldwide." },
+      { w: "pollution", pos: "n.", def: "The introduction of harmful substances into the natural environment.", ex: "Air pollution in major cities is linked to increased rates of respiratory disease." },
+      { w: "climate change", pos: "n.", def: "Long-term shifts in global temperatures and weather patterns, accelerated by human activity.", ex: "Climate change is causing more frequent and severe weather events globally." },
+      { w: "conservation", pos: "n.", def: "The protection and careful management of natural resources and the environment.", ex: "Conservation efforts have helped several endangered species recover their populations." },
+      { w: "overfishing", pos: "n.", def: "Fishing at a rate that depletes fish stocks faster than they can replenish.", ex: "Overfishing has collapsed several major commercial fish populations in the North Atlantic." },
+      { w: "drought", pos: "n.", def: "A prolonged period of abnormally low rainfall leading to water shortages.", ex: "Severe droughts are becoming more common as global temperatures rise." },
+      { w: "glacial retreat", pos: "n.", def: "The shrinking of glaciers due to rising global temperatures.", ex: "Glacial retreat in the Himalayas threatens the freshwater supply for millions of people." },
+      { w: "emissions trading", pos: "n.", def: "A market-based approach to reducing pollution by setting limits on emissions.", ex: "The EU's emissions trading scheme has reduced industrial carbon output significantly." },
+      { w: "desertification", pos: "n.", def: "The process by which fertile land becomes desert, typically as a result of drought or deforestation.", ex: "Desertification is advancing across parts of sub-Saharan Africa at an alarming rate." },
+      { w: "ecological footprint", pos: "n.", def: "A measure of human demand on nature relative to the planet's capacity to regenerate.", ex: "High-income nations have an ecological footprint far exceeding sustainable levels." },
+      { w: "invasive species", pos: "n.", def: "Non-native organisms that spread rapidly and harm local ecosystems.", ex: "The introduction of invasive species has devastated native wildlife on many islands." },
+      { w: "carbon neutral", pos: "adj.", def: "Achieving net zero carbon emissions by balancing emissions with removal.", ex: "The company aims to be carbon neutral by 2030 through offsetting and renewable energy." },
+      { w: "environmental degradation", pos: "n.", def: "The deterioration of the environment through depletion of resources and pollution.", ex: "Environmental degradation poses long-term risks to human health and economic stability." },
+      { w: "reforestation", pos: "n.", def: "Planting trees in areas where forest has been cut or destroyed.", ex: "Reforestation projects in Brazil have restored millions of hectares of degraded land." },
+      { w: "ocean acidification", pos: "n.", def: "The decrease in pH of Earth's oceans caused by the absorption of CO₂.", ex: "Ocean acidification is dissolving the shells of marine organisms like oysters and corals." },
+      { w: "ozone layer", pos: "n.", def: "A layer of ozone in the stratosphere that absorbs most of the sun's ultraviolet radiation.", ex: "The ozone layer has gradually recovered since the ban on CFCs in the 1980s." },
+      { w: "sustainable development", pos: "n.", def: "Development that meets current needs without compromising future generations' ability to meet theirs.", ex: "The UN's Sustainable Development Goals set targets for sustainable development by 2030." },
+      { w: "water scarcity", pos: "n.", def: "A lack of sufficient available fresh water resources to meet demand.", ex: "Water scarcity affects over two billion people worldwide and is worsening with climate change." },
+      { w: "solar panel", pos: "n.", def: "A device that converts sunlight into electricity using photovoltaic cells.", ex: "Solar panel installations have increased by over 300% in the past five years." },
+      { w: "wind turbine", pos: "n.", def: "A machine that converts wind energy into electrical power.", ex: "Offshore wind turbines can generate electricity more consistently than onshore ones." },
+      { w: "wetland", pos: "n.", def: "Land saturated with water, acting as a habitat for wildlife and a natural flood barrier.", ex: "Wetlands filter pollutants from water and provide habitat for migratory birds." },
+      { w: "circular economy", pos: "n.", def: "An economic system aimed at eliminating waste by continually reusing and recycling resources.", ex: "A circular economy model could reduce global material use by 40% by 2050." },
+      { w: "biodegradable", pos: "adj.", def: "Capable of being decomposed by bacteria or other living organisms.", ex: "Replacing plastic packaging with biodegradable alternatives reduces landfill waste." },
+    ]
+  },
+
+  {
+    id: "technology",
+    icon: "💻",
+    title: "Technology & Innovation",
+    desc: "Vocabulary for essays on artificial intelligence, digital transformation, data, and the societal impact of technology.",
+    words: [
+      { w: "artificial intelligence", pos: "n.", def: "Computer systems that perform tasks requiring human-like intelligence.", ex: "Artificial intelligence is increasingly used to screen job applications before humans see them." },
+      { w: "algorithm", pos: "n.", def: "A set of rules or instructions followed by a computer to solve a problem.", ex: "Social media algorithms prioritise content that generates strong emotional reactions." },
+      { w: "automation", pos: "n.", def: "The use of technology to perform tasks with minimal human intervention.", ex: "Automation has replaced millions of manufacturing jobs in advanced economies." },
+      { w: "digital divide", pos: "n.", def: "The gap between those who have access to technology and those who do not.", ex: "The digital divide means remote communities often lack access to online education." },
+      { w: "machine learning", pos: "n.", def: "A type of AI in which systems learn and improve from experience without being explicitly programmed.", ex: "Machine learning enables spam filters to adapt to new types of unwanted email." },
+      { w: "big data", pos: "n.", def: "Extremely large data sets that can be analysed to reveal patterns and trends.", ex: "Big data allows companies to predict consumer behaviour with remarkable accuracy." },
+      { w: "cybersecurity", pos: "n.", def: "The practice of protecting systems and networks from digital attacks.", ex: "Governments are increasing investment in cybersecurity following a rise in state-sponsored attacks." },
+      { w: "surveillance", pos: "n.", def: "The monitoring of behaviour, activities, or information, often by governments or corporations.", ex: "Facial recognition surveillance raises serious questions about privacy and civil liberties." },
+      { w: "data privacy", pos: "n.", def: "The right of individuals to control how their personal information is collected and used.", ex: "Europe's GDPR legislation strengthened data privacy rights for citizens significantly." },
+      { w: "disruptive technology", pos: "n.", def: "An innovation that significantly alters or displaces established industries.", ex: "Smartphones were a disruptive technology that transformed the camera and music industries." },
+      { w: "innovation", pos: "n.", def: "The introduction of new ideas, methods, or technologies.", ex: "Innovation in battery technology is essential for the widespread adoption of electric vehicles." },
+      { w: "digital literacy", pos: "n.", def: "The ability to use digital tools and evaluate online information critically.", ex: "Digital literacy is now considered as essential as reading and writing in modern education." },
+      { w: "biotechnology", pos: "n.", def: "The use of living systems and organisms to develop products and technologies.", ex: "Biotechnology has enabled the development of genetically modified crops resistant to drought." },
+      { w: "nanotechnology", pos: "n.", def: "The manipulation of matter on an atomic or molecular scale.", ex: "Nanotechnology shows promise in targeted drug delivery for cancer treatment." },
+      { w: "virtual reality", pos: "n.", def: "A simulated three-dimensional environment experienced through a headset.", ex: "Virtual reality is being used to train surgeons in complex procedures without risk to patients." },
+      { w: "autonomous vehicle", pos: "n.", def: "A self-driving car or machine capable of navigating without human input.", ex: "Autonomous vehicles could reduce road accidents caused by human error by up to 90%." },
+      { w: "blockchain", pos: "n.", def: "A decentralised, distributed digital record of transactions.", ex: "Blockchain technology ensures that financial records cannot be altered retroactively." },
+      { w: "cloud computing", pos: "n.", def: "The delivery of computing services over the internet rather than on local hardware.", ex: "Cloud computing allows companies to scale their operations without investing in physical servers." },
+      { w: "genetic engineering", pos: "n.", def: "The direct manipulation of an organism's genes using biotechnology.", ex: "Genetic engineering has produced insulin at scale, saving millions of diabetic patients." },
+      { w: "misinformation", pos: "n.", def: "False or inaccurate information spread regardless of intent to deceive.", ex: "Misinformation about vaccines spread rapidly through social media during the pandemic." },
+      { w: "echo chamber", pos: "n.", def: "An environment where people encounter only information that reinforces their existing beliefs.", ex: "Social media platforms have been criticised for creating echo chambers that deepen polarisation." },
+      { w: "renewable technology", pos: "n.", def: "Technologies that harness naturally replenished energy sources.", ex: "Advances in renewable technology have made solar power cost-competitive with coal." },
+      { w: "digital transformation", pos: "n.", def: "The integration of digital technology into all areas of business and society.", ex: "The pandemic accelerated digital transformation in healthcare and education." },
+      { w: "intellectual property", pos: "n.", def: "Creations of the mind — inventions, designs, works — protected by law.", ex: "Intellectual property theft costs the global economy hundreds of billions each year." },
+      { w: "open source", pos: "adj.", def: "Software whose source code is freely available for modification and distribution.", ex: "The Linux operating system is the most successful open source project in history." },
+      { w: "Internet of Things (IoT)", pos: "n.", def: "A network of physical devices connected to the internet that collect and share data.", ex: "The Internet of Things enables smart homes to adjust heating automatically based on occupancy." },
+      { w: "net neutrality", pos: "n.", def: "The principle that all internet traffic should be treated equally by providers.", ex: "Opponents of net neutrality argue it stifles investment in network infrastructure." },
+      { w: "platform economy", pos: "n.", def: "An economy driven by digital platforms connecting producers and consumers.", ex: "The platform economy has created new forms of work while eroding traditional employment protections." },
+      { w: "ethical AI", pos: "n.", def: "The design of AI systems that are fair, transparent, and aligned with human values.", ex: "Ethical AI frameworks are needed to prevent bias in automated decision-making systems." },
+      { w: "semiconductor", pos: "n.", def: "A material used in electronic components; essential for all modern technology.", ex: "The global semiconductor shortage disrupted production of everything from cars to smartphones." },
+      { w: "augmented reality", pos: "n.", def: "Technology that overlays digital information onto the real world.", ex: "Augmented reality apps allow users to see how furniture would look in their home before buying." },
+    ]
+  },
+
+  {
+    id: "education",
+    icon: "📚",
+    title: "Education & Learning",
+    desc: "Key terms for discussing educational systems, learning methods, academic achievement, and lifelong learning.",
+    words: [
+      { w: "critical thinking", pos: "n.", def: "The objective analysis and evaluation of an issue to form a judgement.", ex: "Employers consistently rank critical thinking as one of the most valued graduate skills." },
+      { w: "curriculum", pos: "n.", def: "The subjects and content taught at a school, university, or within a course.", ex: "Many educators argue that the school curriculum needs to be reformed to include digital skills." },
+      { w: "standardised testing", pos: "n.", def: "Assessment designed so that procedure and scoring are consistent across all test-takers.", ex: "Critics argue that standardised testing fails to capture creative or practical intelligence." },
+      { w: "higher education", pos: "n.", def: "Education at the level of college or university, typically after the age of 18.", ex: "Higher education has become increasingly expensive, leading many students into significant debt." },
+      { w: "vocational training", pos: "n.", def: "Education focused on practical skills for a specific trade or career.", ex: "Vocational training programmes produce skilled technicians that the economy urgently needs." },
+      { w: "literacy", pos: "n.", def: "The ability to read and write; extended to include competency in a specific area.", ex: "Financial literacy is rarely taught in schools, leaving many young adults unprepared for adulthood." },
+      { w: "tuition fee", pos: "n.", def: "Money charged by an educational institution for teaching.", ex: "Rising tuition fees have made higher education inaccessible for students from low-income families." },
+      { w: "academic achievement", pos: "n.", def: "The extent to which students have attained their educational goals.", ex: "Research shows that socioeconomic background strongly predicts academic achievement." },
+      { w: "distance learning", pos: "n.", def: "Education conducted remotely, typically online, without face-to-face contact.", ex: "Distance learning has expanded access to education for students in remote areas." },
+      { w: "pedagogy", pos: "n.", def: "The method and practice of teaching, especially as an academic subject.", ex: "Inquiry-based pedagogy encourages students to discover knowledge rather than simply receive it." },
+      { w: "dropout rate", pos: "n.", def: "The proportion of students who leave a programme before completing it.", ex: "High dropout rates at university often correlate with financial hardship and inadequate support." },
+      { w: "gifted education", pos: "n.", def: "Specialised instruction for students with exceptional intellectual abilities.", ex: "Gifted education programmes can help talented students reach their full potential." },
+      { w: "inclusive education", pos: "n.", def: "An educational approach where all students, including those with disabilities, learn together.", ex: "Inclusive education requires significant investment in teacher training and adapted resources." },
+      { w: "scholarship", pos: "n.", def: "A financial grant awarded to support a student's education.", ex: "She was awarded a full scholarship to study engineering at a top university." },
+      { w: "grade inflation", pos: "n.", def: "The trend of awarding higher grades over time without a corresponding increase in achievement.", ex: "Grade inflation undermines the value of academic qualifications in the job market." },
+      { w: "rote learning", pos: "n.", def: "Memorisation through repetition without necessarily understanding the meaning.", ex: "Critics of rote learning argue it does not develop the analytical skills needed in modern careers." },
+      { w: "lifelong learning", pos: "n.", def: "The ongoing pursuit of knowledge throughout life, beyond formal education.", ex: "Lifelong learning has become essential as technology changes job requirements rapidly." },
+      { w: "bilingual education", pos: "n.", def: "Teaching academic content in two languages.", ex: "Bilingual education has been shown to improve cognitive flexibility and academic performance." },
+      { w: "cognitive development", pos: "n.", def: "The process by which thinking, reasoning, and problem-solving abilities mature.", ex: "Play-based learning supports cognitive development in early childhood more effectively than drilling." },
+      { w: "merit-based", pos: "adj.", def: "Based on ability and achievement rather than privilege or background.", ex: "A merit-based admissions system rewards academic talent regardless of financial background." },
+      { w: "apprenticeship", pos: "n.", def: "A system combining work experience and formal study to gain a qualification.", ex: "Apprenticeships offer an alternative to university for students interested in skilled trades." },
+      { w: "plagiarism", pos: "n.", def: "The practice of taking someone else's work and presenting it as your own.", ex: "Universities use software to detect plagiarism in student essays." },
+      { w: "peer learning", pos: "n.", def: "A method of learning in which students teach and learn from each other.", ex: "Peer learning can deepen understanding by requiring students to explain concepts clearly." },
+      { w: "active learning", pos: "n.", def: "An approach in which students engage with material through discussion, practice, and reflection.", ex: "Active learning strategies improve retention compared to passive lecture-based instruction." },
+      { w: "extracurricular activity", pos: "n.", def: "Activities outside the formal academic curriculum, such as sports or clubs.", ex: "Extracurricular activities help students develop teamwork, leadership, and communication skills." },
+      { w: "enrol", pos: "v.", def: "To officially register for a course or programme.", ex: "More than five thousand students enrolled in the online course within its first week." },
+      { w: "assessment", pos: "n.", def: "The evaluation of a student's knowledge, skills, or performance.", ex: "Continuous assessment throughout the year can be less stressful than a single final exam." },
+      { w: "postgraduate", pos: "adj./n.", def: "Relating to study undertaken after a first degree.", ex: "She pursued a postgraduate degree in public health to specialise further." },
+      { w: "learning outcomes", pos: "n.", def: "The knowledge and skills students are expected to acquire through a course.", ex: "Learning outcomes should be measurable and relevant to real-world professional contexts." },
+      { w: "STEM", pos: "n.", def: "Science, Technology, Engineering, and Mathematics — as a collective field.", ex: "Governments are increasing funding for STEM education to meet demand for technical workers." },
+      { w: "equity in education", pos: "n.", def: "Ensuring all students have fair access to quality education regardless of background.", ex: "Equity in education requires more than equal resources — it requires addressing systemic disadvantages." },
+    ]
+  },
+
+  {
+    id: "health",
+    icon: "🏥",
+    title: "Health & Medicine",
+    desc: "Vocabulary for discussing public health, medicine, mental health, and healthcare systems in academic writing.",
+    words: [
+      { w: "public health", pos: "n.", def: "The science and practice of protecting and improving community health.", ex: "Public health campaigns reduced smoking rates significantly over the past three decades." },
+      { w: "chronic disease", pos: "n.", def: "A long-term health condition that persists for more than three months.", ex: "Chronic diseases such as diabetes and heart disease account for 70% of global deaths." },
+      { w: "epidemic", pos: "n.", def: "A widespread occurrence of an infectious disease in a community at a particular time.", ex: "The obesity epidemic has become one of the most pressing public health challenges of the century." },
+      { w: "pandemic", pos: "n.", def: "An epidemic spread across a large region, typically worldwide.", ex: "The COVID-19 pandemic exposed significant inequalities in global healthcare systems." },
+      { w: "vaccination", pos: "n.", def: "The administration of a vaccine to stimulate immunity against a disease.", ex: "Mass vaccination programmes have eliminated smallpox and nearly eradicated polio." },
+      { w: "mental health", pos: "n.", def: "A person's psychological, emotional, and social well-being.", ex: "Mental health services are significantly underfunded relative to physical health in most countries." },
+      { w: "obesity", pos: "n.", def: "A condition characterised by excessive body fat, posing health risks.", ex: "Obesity rates have tripled globally since 1975, driven by sedentary lifestyles and poor diet." },
+      { w: "mortality rate", pos: "n.", def: "The number of deaths in a given population over a specific time.", ex: "The infant mortality rate is widely used as an indicator of a country's healthcare quality." },
+      { w: "life expectancy", pos: "n.", def: "The average number of years a person is expected to live.", ex: "Life expectancy in high-income countries has increased by more than 30 years since 1900." },
+      { w: "antibiotic resistance", pos: "n.", def: "The ability of bacteria to survive exposure to antibiotics that once killed them.", ex: "Antibiotic resistance is considered one of the greatest threats to global health." },
+      { w: "preventive medicine", pos: "n.", def: "Healthcare focused on preventing disease rather than treating it.", ex: "Preventive medicine programmes, such as regular screenings, reduce long-term healthcare costs." },
+      { w: "pharmaceutical", pos: "adj./n.", def: "Relating to medicinal drugs; a medicinal drug.", ex: "Pharmaceutical companies invest billions in research and development for new treatments." },
+      { w: "clinical trial", pos: "n.", def: "A research study testing the safety and effectiveness of a medical treatment in humans.", ex: "The vaccine underwent three phases of clinical trials before receiving regulatory approval." },
+      { w: "universal healthcare", pos: "n.", def: "A health system providing coverage to all citizens regardless of their ability to pay.", ex: "Universal healthcare ensures that a person's wealth does not determine their access to treatment." },
+      { w: "malnutrition", pos: "n.", def: "Lack of proper nutrition, caused by not having enough food or the right food.", ex: "Malnutrition affects nearly 700 million people globally, with children under five most at risk." },
+      { w: "epidemic curve", pos: "n.", def: "A graph displaying the progression of an infectious disease outbreak over time.", ex: "Flattening the epidemic curve was the stated goal of lockdown measures in 2020." },
+      { w: "sedentary lifestyle", pos: "n.", def: "A way of living characterised by little physical activity.", ex: "A sedentary lifestyle significantly increases the risk of heart disease and type 2 diabetes." },
+      { w: "holistic health", pos: "n.", def: "An approach to wellness that considers physical, mental, and social well-being together.", ex: "Holistic health practitioners address root causes of illness rather than symptoms alone." },
+      { w: "telemedicine", pos: "n.", def: "The remote delivery of healthcare services using telecommunications technology.", ex: "Telemedicine expanded rapidly during the pandemic, enabling patients to consult doctors online." },
+      { w: "informed consent", pos: "n.", def: "A patient's voluntary agreement to a medical treatment after being fully informed.", ex: "Informed consent is a fundamental ethical requirement before any medical procedure." },
+      { w: "addiction", pos: "n.", def: "A compulsive dependence on a substance or behaviour that is difficult to control.", ex: "Addiction is classified as a chronic brain disorder requiring medical treatment, not just willpower." },
+      { w: "immune system", pos: "n.", def: "The body's network of cells and proteins that defends against infection.", ex: "A weakened immune system makes individuals more vulnerable to opportunistic infections." },
+      { w: "disparity", pos: "n.", def: "A notable difference or imbalance — in health, often between demographic groups.", ex: "Health disparities between rich and poor persist even in countries with universal healthcare." },
+      { w: "quarantine", pos: "n.", def: "The isolation of people or animals to prevent the spread of disease.", ex: "Quarantine measures were implemented at borders to slow the spread of the emerging virus." },
+      { w: "gene therapy", pos: "n.", def: "Treatment that alters a person's genes to treat or prevent disease.", ex: "Gene therapy offers hope for patients with inherited conditions like cystic fibrosis." },
+      { w: "palliative care", pos: "n.", def: "Treatment focused on relieving symptoms and improving quality of life for seriously ill patients.", ex: "Palliative care teams help patients and families cope with terminal illness." },
+      { w: "epidemiology", pos: "n.", def: "The study of the distribution and determinants of disease in populations.", ex: "Epidemiology played a central role in identifying the source of the cholera outbreak." },
+      { w: "pathogen", pos: "n.", def: "A bacterium, virus, or other microorganism that causes disease.", ex: "Understanding how pathogens spread is essential for designing effective public health responses." },
+      { w: "burnout", pos: "n.", def: "A state of chronic stress leading to physical and emotional exhaustion.", ex: "Burnout among healthcare workers reached crisis levels during the COVID-19 pandemic." },
+      { w: "malpractice", pos: "n.", def: "Negligent or improper treatment by a medical professional.", ex: "Malpractice lawsuits have led many doctors to practise defensively, over-testing patients." },
+      { w: "sanitation", pos: "n.", def: "Conditions and systems for preventing disease through clean water and sewage disposal.", ex: "Improved sanitation has done more to reduce infectious disease than any single medical intervention." },
+    ]
+  },
+
+  {
+    id: "society",
+    icon: "🏙️",
+    title: "Society & Social Issues",
+    desc: "Vocabulary for discussing inequality, demographics, immigration, social change, and community.",
+    words: [
+      { w: "socioeconomic", pos: "adj.", def: "Relating to the interaction of social and economic factors.", ex: "Socioeconomic background remains the strongest predictor of educational attainment." },
+      { w: "inequality", pos: "n.", def: "Unequal distribution of wealth, opportunities, or privileges in society.", ex: "Income inequality has widened in most developed countries since the 1980s." },
+      { w: "demographic", pos: "adj./n.", def: "Relating to population structure and statistics; a segment of a population.", ex: "The ageing demographic in Japan is placing enormous pressure on its pension system." },
+      { w: "urbanisation", pos: "n.", def: "The process by which more people come to live in cities.", ex: "Rapid urbanisation in developing countries is outpacing the provision of housing and services." },
+      { w: "social mobility", pos: "n.", def: "The ability of individuals to move up or down the social hierarchy.", ex: "Low social mobility means that a person's life chances are largely determined at birth." },
+      { w: "discrimination", pos: "n.", def: "Unfair treatment of a person based on a characteristic such as race, gender, or age.", ex: "Discrimination in the workplace remains a significant barrier for minority groups." },
+      { w: "immigration", pos: "n.", def: "The process of coming to live permanently in a foreign country.", ex: "Immigration has been a major driver of economic growth in many developed nations." },
+      { w: "integration", pos: "n.", def: "The process of bringing together different groups into a unified society.", ex: "Successful integration requires investment in language support and community programmes." },
+      { w: "poverty line", pos: "n.", def: "The minimum income deemed adequate to meet basic needs.", ex: "Over 700 million people worldwide still live below the international poverty line." },
+      { w: "gender gap", pos: "n.", def: "A disparity between men and women in terms of pay, opportunity, or representation.", ex: "The gender pay gap persists even in countries with strong equal rights legislation." },
+      { w: "civil rights", pos: "n.", def: "The rights of citizens to political and social equality.", ex: "The civil rights movement transformed the legal landscape for African Americans in the 1960s." },
+      { w: "welfare state", pos: "n.", def: "A system in which the government provides basic economic security for citizens.", ex: "The Nordic welfare state model combines high taxes with comprehensive social services." },
+      { w: "gentrification", pos: "n.", def: "The process by which wealthier people move into a poorer area, raising costs and displacing residents.", ex: "Gentrification has transformed former industrial neighbourhoods into expensive residential areas." },
+      { w: "social cohesion", pos: "n.", def: "The degree of connectedness and solidarity among members of a community.", ex: "Social cohesion is undermined when inequality reaches extreme levels." },
+      { w: "marginalisation", pos: "n.", def: "The process of treating a group as less important or relegating them to the edges of society.", ex: "The marginalisation of indigenous communities continues to be a major human rights concern." },
+      { w: "multiculturalism", pos: "n.", def: "The coexistence of multiple cultural or ethnic groups within a society.", ex: "Multiculturalism is a defining feature of cities like Toronto, London, and Sydney." },
+      { w: "ageing population", pos: "n.", def: "A demographic trend where the median age of a population increases over time.", ex: "An ageing population increases demand for healthcare and strains pension systems." },
+      { w: "birth rate", pos: "n.", def: "The number of live births per 1,000 of a population in a given year.", ex: "Falling birth rates in Japan have led to population decline and a shrinking workforce." },
+      { w: "refugee", pos: "n.", def: "A person forced to leave their country due to persecution, conflict, or disaster.", ex: "The UN estimates that over 100 million people are currently forcibly displaced worldwide." },
+      { w: "social stratification", pos: "n.", def: "The hierarchical arrangement of society into distinct social classes.", ex: "Social stratification is reinforced by unequal access to education, healthcare, and housing." },
+      { w: "homelessness", pos: "n.", def: "The condition of lacking stable, safe, or adequate housing.", ex: "Homelessness in major cities has increased as a result of rising rents and welfare cuts." },
+      { w: "philanthropy", pos: "n.", def: "The desire to promote the well-being of others, typically through charitable donations.", ex: "Philanthropy from tech billionaires has funded significant advances in global health." },
+      { w: "empowerment", pos: "n.", def: "The process of becoming stronger and more confident, especially in controlling one's life.", ex: "Microfinance schemes have been used to promote the economic empowerment of women." },
+      { w: "social norm", pos: "n.", def: "An unwritten rule or expectation that governs behaviour within a group or society.", ex: "Social norms around gender roles have shifted dramatically in the past 50 years." },
+      { w: "austerity", pos: "n.", def: "Government policies that reduce spending to manage debt, often cutting public services.", ex: "Austerity measures following the 2008 financial crisis significantly reduced welfare provision." },
+      { w: "meritocracy", pos: "n.", def: "A society in which advancement is based on ability and effort rather than privilege.", ex: "Critics argue that the idea of meritocracy obscures the real advantages of privilege and wealth." },
+      { w: "stigma", pos: "n.", def: "A mark of disgrace associated with a particular characteristic or group.", ex: "The stigma surrounding mental illness prevents many people from seeking professional help." },
+      { w: "civic engagement", pos: "n.", def: "Active participation in the political and community life of one's society.", ex: "Civic engagement among young people has increased with the growth of online activism." },
+      { w: "social safety net", pos: "n.", def: "A collection of services and benefits protecting citizens from economic hardship.", ex: "A robust social safety net reduces poverty during economic downturns." },
+      { w: "diaspora", pos: "n.", def: "A population scattered from their homeland, living in other countries.", ex: "The Irish diaspora has had a significant cultural and political influence in the United States." },
+      { w: "collective action", pos: "n.", def: "Cooperative effort by a group to achieve a common goal.", ex: "Climate change requires collective action on a global scale — no single country can solve it alone." },
+    ]
+  },
+
+  {
+    id: "economy",
+    icon: "📈",
+    title: "Economy & Business",
+    desc: "Academic vocabulary for writing about economic systems, trade, financial markets, and business strategy.",
+    words: [
+      { w: "GDP (gross domestic product)", pos: "n.", def: "The total monetary value of all goods and services produced in a country in a year.", ex: "GDP growth of 3% is generally considered healthy for a developed economy." },
+      { w: "inflation", pos: "n.", def: "The rate at which the general level of prices rises, reducing purchasing power.", ex: "High inflation erodes the value of savings and disproportionately affects low-income households." },
+      { w: "recession", pos: "n.", def: "A period of economic decline, typically defined as two consecutive quarters of negative GDP growth.", ex: "The 2008 recession led to the highest unemployment rates in a generation in many countries." },
+      { w: "fiscal policy", pos: "n.", def: "Government use of taxation and spending to influence the economy.", ex: "Expansionary fiscal policy — cutting taxes and increasing spending — is used to stimulate growth." },
+      { w: "monetary policy", pos: "n.", def: "Central bank management of the money supply and interest rates to control inflation.", ex: "Rising interest rates are a key tool of monetary policy to bring inflation under control." },
+      { w: "globalisation", pos: "n.", def: "The process of increasing integration and interdependence of world economies.", ex: "Globalisation has reduced the cost of consumer goods while displacing manufacturing jobs." },
+      { w: "trade deficit", pos: "n.", def: "When a country imports more goods and services than it exports.", ex: "The US has run a persistent trade deficit with China for several decades." },
+      { w: "supply chain", pos: "n.", def: "The sequence of processes from production to delivery of a product.", ex: "The pandemic exposed how fragile global supply chains can be when a single node fails." },
+      { w: "entrepreneurship", pos: "n.", def: "The activity of setting up and running a business, especially a new one.", ex: "Entrepreneurship is seen as a key driver of innovation and job creation." },
+      { w: "subsidy", pos: "n.", def: "Financial support given by the government to help an industry or reduce costs for consumers.", ex: "Agricultural subsidies in wealthy nations distort global markets and harm farmers in developing countries." },
+      { w: "outsourcing", pos: "n.", def: "Contracting work to an external organisation, often in another country.", ex: "Many companies outsource customer service operations to countries with lower labour costs." },
+      { w: "market economy", pos: "n.", def: "An economy in which prices and production are determined by supply and demand.", ex: "In a market economy, competition between firms drives down prices and spurs innovation." },
+      { w: "monopoly", pos: "n.", def: "A situation where a single company dominates an entire market.", ex: "Antitrust regulators act to prevent monopolies from stifling competition and harming consumers." },
+      { w: "interest rate", pos: "n.", def: "The proportion of a loan charged as interest to the borrower.", ex: "Higher interest rates reduce consumer borrowing and spending, slowing economic growth." },
+      { w: "investment", pos: "n.", def: "The allocation of resources with the expectation of generating income or profit.", ex: "Foreign direct investment plays a crucial role in developing countries' economic growth." },
+      { w: "austerity", pos: "n.", def: "Economic policies of reducing government spending to manage debt.", ex: "Austerity programmes in Southern Europe after 2010 led to prolonged recessions and high unemployment." },
+      { w: "inequality of wealth", pos: "n.", def: "The unequal distribution of assets among a population.", ex: "Wealth inequality has reached levels not seen since the early 20th century in many countries." },
+      { w: "free trade", pos: "n.", def: "Trade between countries without tariffs, quotas, or other restrictions.", ex: "Free trade agreements lower costs for businesses and consumers by removing trade barriers." },
+      { w: "currency depreciation", pos: "n.", def: "A decrease in the value of a currency relative to others.", ex: "Currency depreciation makes exports cheaper but increases the cost of imported goods." },
+      { w: "unemployment rate", pos: "n.", def: "The percentage of the labour force that is jobless and actively seeking work.", ex: "Youth unemployment rates in several Southern European countries exceeded 30% after 2010." },
+      { w: "corporate social responsibility", pos: "n.", def: "A business model in which companies consider social and environmental impacts alongside profit.", ex: "Corporate social responsibility initiatives can improve a company's reputation and attract talent." },
+      { w: "debt", pos: "n.", def: "Money owed by an individual, company, or government to another party.", ex: "Spiralling national debt limits a government's ability to invest in public services." },
+      { w: "productivity", pos: "n.", def: "The efficiency with which goods or services are produced.", ex: "Productivity growth has slowed significantly in most developed economies since the 2008 crisis." },
+      { w: "protectionism", pos: "n.", def: "Economic policy of restricting imports to protect domestic industries.", ex: "Protectionism can shield local jobs in the short term but raises prices for consumers." },
+      { w: "startup", pos: "n.", def: "A newly established company, typically in the technology sector.", ex: "Silicon Valley has attracted thousands of startups due to its access to venture capital." },
+      { w: "venture capital", pos: "n.", def: "Funding provided to early-stage companies with high growth potential.", ex: "Venture capital firms took significant risks by investing in companies like Amazon and Google in their early years." },
+      { w: "merger", pos: "n.", def: "The combination of two companies into a single entity.", ex: "The merger created one of the world's largest telecommunications companies." },
+      { w: "stock market", pos: "n.", def: "A marketplace where shares in publicly listed companies are bought and sold.", ex: "Stock market volatility surged as investors reacted to news of rising interest rates." },
+      { w: "economic growth", pos: "n.", def: "An increase in the production of goods and services in an economy over time.", ex: "Sustained economic growth requires investment in education, infrastructure, and innovation." },
+      { w: "taxation", pos: "n.", def: "The system by which a government collects money from individuals and businesses.", ex: "Progressive taxation requires higher earners to pay a larger proportion of their income in tax." },
+      { w: "gig economy", pos: "n.", def: "A labour market characterised by short-term, flexible, and freelance work.", ex: "Workers in the gig economy often lack the protections afforded to full-time employees." },
+    ]
+  },
+
+  {
+    id: "government",
+    icon: "⚖️",
+    title: "Government & Politics",
+    desc: "Essential vocabulary for essays on political systems, democracy, international relations, and policy.",
+    words: [
+      { w: "democracy", pos: "n.", def: "A system of government in which citizens elect representatives and hold power.", ex: "Democracy depends on a free press, independent judiciary, and informed citizenry." },
+      { w: "authoritarian", pos: "adj.", def: "Favouring or enforcing obedience to authority at the expense of personal freedom.", ex: "Authoritarian governments often restrict press freedom and suppress political opposition." },
+      { w: "sovereignty", pos: "n.", def: "The full right and power of a state to govern itself without outside interference.", ex: "The debate over European sovereignty intensified following the Brexit referendum." },
+      { w: "legislation", pos: "n.", def: "Laws collectively; the process of making laws.", ex: "Legislation to limit carbon emissions has been passed in over 130 countries." },
+      { w: "constitution", pos: "n.", def: "The fundamental principles and laws establishing the structure of a government.", ex: "The constitution guarantees freedom of speech and protection from arbitrary arrest." },
+      { w: "diplomacy", pos: "n.", def: "The conduct of international relations through negotiation.", ex: "Effective diplomacy requires patience, cultural understanding, and strategic compromise." },
+      { w: "geopolitics", pos: "n.", def: "The study of how geography, economics, and demographics influence politics.", ex: "The war in Ukraine shifted the geopolitics of European security significantly." },
+      { w: "sanctions", pos: "n.", def: "Penalties imposed on a country to compel it to comply with international law.", ex: "Economic sanctions were imposed on Russia following its invasion of Ukraine." },
+      { w: "lobbying", pos: "n.", def: "The act of attempting to influence government decisions, often by interest groups.", ex: "The pharmaceutical industry spends billions on lobbying to influence drug pricing legislation." },
+      { w: "civil liberties", pos: "n.", def: "Individual rights and freedoms protected from government interference.", ex: "Surveillance programmes can threaten civil liberties if not subject to oversight." },
+      { w: "propaganda", pos: "n.", def: "Information, often biased or misleading, used to promote a political cause.", ex: "State propaganda played a central role in maintaining support for totalitarian regimes." },
+      { w: "referendum", pos: "n.", def: "A public vote on a single political question.", ex: "The Brexit referendum produced a narrow majority in favour of leaving the European Union." },
+      { w: "bicameral", pos: "adj.", def: "Having two legislative chambers or houses.", ex: "The US Congress is a bicameral legislature, consisting of the Senate and the House of Representatives." },
+      { w: "political polarisation", pos: "n.", def: "The divergence of political views towards opposing extremes.", ex: "Political polarisation makes bipartisan cooperation on major issues increasingly difficult." },
+      { w: "transparency", pos: "n.", def: "Openness and accountability in government operations.", ex: "Transparency in public spending is essential for maintaining trust in democratic institutions." },
+      { w: "corruption", pos: "n.", def: "Dishonest or illegal behaviour by those in power for personal gain.", ex: "Corruption diverts public resources away from essential services like education and healthcare." },
+      { w: "international law", pos: "n.", def: "The body of rules and norms governing relations between states.", ex: "International law prohibits the deliberate targeting of civilians in armed conflict." },
+      { w: "coalition government", pos: "n.", def: "A government formed by two or more political parties sharing power.", ex: "Coalition governments are common in proportional representation systems." },
+      { w: "veto", pos: "n./v.", def: "The right to reject a decision or proposal; to exercise this right.", ex: "Any permanent member of the UN Security Council can veto a resolution." },
+      { w: "human rights", pos: "n.", def: "Rights inherent to all people, regardless of nationality or background.", ex: "The Universal Declaration of Human Rights was adopted by the UN in 1948." },
+      { w: "populism", pos: "n.", def: "A political approach that claims to represent the interests of ordinary people against the elite.", ex: "Populism has reshaped political landscapes across both Europe and the Americas." },
+      { w: "judicial independence", pos: "n.", def: "The principle that courts should operate free from political influence.", ex: "Judicial independence is a cornerstone of the rule of law in democratic societies." },
+      { w: "electoral system", pos: "n.", def: "The rules determining how votes are cast, counted, and translated into outcomes.", ex: "Proportional electoral systems tend to produce more representative parliaments." },
+      { w: "separation of powers", pos: "n.", def: "The division of government into legislative, executive, and judicial branches.", ex: "The separation of powers prevents any one branch from gaining excessive authority." },
+      { w: "bureaucracy", pos: "n.", def: "A system of government marked by complex processes and layers of administration.", ex: "Excessive bureaucracy slows government decision-making and frustrates citizens." },
+      { w: "trade agreement", pos: "n.", def: "A treaty between countries establishing terms for trade between them.", ex: "The EU-Canada trade agreement reduced tariffs on thousands of goods." },
+      { w: "multilateralism", pos: "n.", def: "Cooperation among multiple countries to address shared challenges.", ex: "Climate change and pandemic preparedness require multilateralism on an unprecedented scale." },
+      { w: "universal suffrage", pos: "n.", def: "The right of all adults to vote in political elections.", ex: "Universal suffrage was only achieved in many countries during the 20th century." },
+      { w: "public policy", pos: "n.", def: "Government decisions about how to address societal problems and allocate resources.", ex: "Public policy on healthcare determines who has access to treatment and at what cost." },
+      { w: "political accountability", pos: "n.", def: "The obligation of those in power to explain and justify their decisions to the public.", ex: "Political accountability is strengthened by a free press and robust parliamentary oversight." },
+      { w: "nationalism", pos: "n.", def: "Strong identification with one's nation and support for national interests above others.", ex: "Economic nationalism has led several countries to impose tariffs on foreign goods." },
+    ]
+  },
+
+  {
+    id: "arts",
+    icon: "🎨",
+    title: "Arts, Culture & Media",
+    desc: "Vocabulary for discussing literature, film, music, journalism, cultural identity, and the media.",
+    words: [
+      { w: "aesthetic", pos: "adj./n.", def: "Relating to beauty or the appreciation of beauty; a set of artistic principles.", ex: "The architect's aesthetic favoured clean lines and natural materials." },
+      { w: "narrative", pos: "n.", def: "A spoken or written account of connected events; a story.", ex: "The film's narrative challenges Western assumptions about heroism and sacrifice." },
+      { w: "cultural heritage", pos: "n.", def: "Traditions, monuments, objects, and values inherited from past generations.", ex: "UNESCO works to protect cultural heritage sites from conflict and climate change." },
+      { w: "censorship", pos: "n.", def: "The suppression of speech, writing, or other content deemed harmful or politically inconvenient.", ex: "Censorship of the press is a hallmark of authoritarian governance." },
+      { w: "mass media", pos: "n.", def: "Media reaching a large audience, including television, radio, and online platforms.", ex: "Mass media shapes public opinion on issues from climate change to immigration." },
+      { w: "subculture", pos: "n.", def: "A cultural group within a larger culture with distinct beliefs or interests.", ex: "Hip-hop emerged as a subculture in New York before becoming a global phenomenon." },
+      { w: "representation", pos: "n.", def: "The portrayal of particular groups in media, literature, or public life.", ex: "Greater representation of minority groups in film and television has been a significant cultural shift." },
+      { w: "intellectual property", pos: "n.", def: "Legal rights protecting creations of the mind, including art, writing, and inventions.", ex: "The internet has made enforcing intellectual property rights far more difficult." },
+      { w: "satire", pos: "n.", def: "The use of humour, irony, or exaggeration to criticise people or society.", ex: "Political satire has historically played a role in challenging those in power." },
+      { w: "postmodernism", pos: "n.", def: "A broad cultural movement rejecting grand narratives and absolute truths.", ex: "Postmodernism in literature often involves self-referential storytelling and unreliable narrators." },
+      { w: "globalisation of culture", pos: "n.", def: "The spread of cultural products, values, and practices across national borders.", ex: "The globalisation of culture has spread Western consumer trends but threatened local traditions." },
+      { w: "indigenous culture", pos: "n.", def: "The cultural practices, languages, and traditions of native peoples.", ex: "Preserving indigenous culture requires support for language programmes and community-led initiatives." },
+      { w: "media literacy", pos: "n.", def: "The ability to critically evaluate and create media messages.", ex: "Media literacy education helps young people identify misinformation and biased reporting." },
+      { w: "genre", pos: "n.", def: "A category of artistic composition characterised by style, form, or content.", ex: "Science fiction as a literary genre often explores the consequences of technological advancement." },
+      { w: "patronage", pos: "n.", def: "Financial support given by an individual or institution to an artist or artistic work.", ex: "During the Renaissance, artistic patronage by wealthy families produced many masterpieces." },
+      { w: "cultural appropriation", pos: "n.", def: "The adoption of elements of a minority culture by members of a more dominant culture.", ex: "The debate over cultural appropriation raises questions about respect, ownership, and power." },
+      { w: "bias", pos: "n.", def: "Prejudice in favour of or against one person or group, especially in an unfair way.", ex: "Studies show that media coverage of crime is often subject to racial bias." },
+      { w: "propaganda", pos: "n.", def: "Information used to promote a particular political cause, often biased or misleading.", ex: "Wartime propaganda was used to maintain civilian morale and encourage enlistment." },
+      { w: "objectivity", pos: "n.", def: "The quality of being unbiased and not influenced by personal feelings.", ex: "Journalists are expected to strive for objectivity, though true neutrality is debated." },
+      { w: "symbolism", pos: "n.", def: "The use of symbols to represent ideas or qualities in art and literature.", ex: "The use of colour as symbolism is central to many of F. Scott Fitzgerald's works." },
+      { w: "dialect", pos: "n.", def: "A form of a language spoken in a particular area or by a particular group.", ex: "The novel is written in dialect, capturing the speech patterns of rural communities." },
+      { w: "censure", pos: "n./v.", def: "Formal expression of strong disapproval; to express this.", ex: "The film faced censure from religious groups for its portrayal of sacred figures." },
+      { w: "tabloid journalism", pos: "n.", def: "Sensationalist reporting focused on scandal and celebrity rather than serious news.", ex: "Tabloid journalism has been criticised for prioritising entertainment over public interest." },
+      { w: "cultural imperialism", pos: "n.", def: "The promotion of one culture over others through economic or political power.", ex: "Critics argue that the global dominance of Hollywood is a form of cultural imperialism." },
+      { w: "documentary", pos: "n.", def: "A film or television programme presenting factual information.", ex: "The documentary brought global attention to working conditions in fast fashion factories." },
+      { w: "social commentary", pos: "n.", def: "Artistic expression that critiques societal conditions and values.", ex: "Much of Banksy's street art functions as powerful social commentary." },
+      { w: "medium", pos: "n.", def: "A channel or system of communication, such as film, print, or radio.", ex: "Each artistic medium has its own strengths in conveying emotion and meaning." },
+      { w: "literary analysis", pos: "n.", def: "Close examination and interpretation of a text to understand its meaning and techniques.", ex: "Literary analysis requires attention to language, structure, and historical context." },
+      { w: "plagiarism", pos: "n.", def: "The use of another person's work or ideas without proper acknowledgement.", ex: "Plagiarism in academic writing is a serious offence that can result in expulsion." },
+      { w: "streaming platform", pos: "n.", def: "An online service delivering video or audio content on demand.", ex: "Streaming platforms have transformed how audiences consume film and television globally." },
+      { w: "social media influencer", pos: "n.", def: "A person who uses social media to shape the opinions and behaviours of their followers.", ex: "Social media influencers have become a major channel for product marketing." },
+    ]
+  }
+
+];
+
+// ═══════════════════════════════════════════════════════════
+// RENDER
+// ═══════════════════════════════════════════════════════════
+
+let activeTopicId = topics[0].id;
+let expandedAll = false;
+
+function init() {
+  renderSidebar();
+  renderMobileNav();
+  renderAllTopics();
+  showTopic(topics[0].id);
+}
+
+function renderSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  topics.forEach(t => {
+    const btn = document.createElement('button');
+    btn.className = 'nav-item';
+    btn.id = `nav-${t.id}`;
+    btn.onclick = () => showTopic(t.id);
+    btn.innerHTML = `
+      <span class="icon">${t.icon}</span>
+      <span>${t.title}</span>
+      <span class="nav-count">${t.words.length}</span>`;
+    sidebar.appendChild(btn);
+  });
+}
+
+function renderMobileNav() {
+  const nav = document.getElementById('mobileNav');
+  topics.forEach(t => {
+    const btn = document.createElement('button');
+    btn.className = 'mobile-nav-btn';
+    btn.id = `mnav-${t.id}`;
+    btn.textContent = t.icon + ' ' + t.title.split(' ')[0];
+    btn.onclick = () => showTopic(t.id);
+    nav.appendChild(btn);
+  });
+}
+
+function renderAllTopics() {
+  const main = document.getElementById('main');
+  topics.forEach(t => {
+    const section = document.createElement('div');
+    section.className = 'topic-section';
+    section.id = `topic-${t.id}`;
+
+    const wordsHtml = t.words.map((w, i) => `
+      <div class="card" onclick="toggleCard(this)">
+        <div class="card-top">
+          <div class="card-word-wrap">
+            <div class="card-word">${w.w}</div>
+            <span class="card-pos">${w.pos}</span>
+          </div>
+          <button class="card-toggle" tabindex="-1" aria-hidden="true">+</button>
+        </div>
+        <div class="card-def">${w.def}</div>
+        <div class="card-example">
+          <div class="card-example-inner">${w.ex}</div>
+        </div>
+      </div>`).join('');
+
+    section.innerHTML = `
+      <div class="topic-header">
+        <div class="topic-eyebrow">${t.icon} Topic</div>
+        <h1 class="topic-title">${t.title}</h1>
+        <p class="topic-desc">${t.desc}</p>
+        <div class="topic-stats">
+          <span class="stat"><strong>${t.words.length}</strong> items</span>
+          <span class="stat">Click any card to see an example sentence</span>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="filter-btn active" onclick="filterCards('all', this, '${t.id}')">All</button>
+        <button class="filter-btn" onclick="filterCards('noun', this, '${t.id}')">Nouns</button>
+        <button class="filter-btn" onclick="filterCards('verb', this, '${t.id}')">Verbs</button>
+        <button class="filter-btn" onclick="filterCards('adj', this, '${t.id}')">Adjectives</button>
+        <button class="expand-all" onclick="toggleExpandAll('${t.id}', this)">Expand all</button>
+      </div>
+      <div class="progress-wrap"><div class="progress-bar" id="prog-${t.id}"></div></div>
+      <div class="vocab-grid" id="grid-${t.id}">${wordsHtml}</div>`;
+
+    main.appendChild(section);
+  });
+}
+
+function showTopic(id) {
+  activeTopicId = id;
+
+  document.querySelectorAll('.topic-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.mobile-nav-btn').forEach(n => n.classList.remove('active'));
+
+  const section = document.getElementById(`topic-${id}`);
+  if (section) section.classList.add('active');
+
+  const navBtn = document.getElementById(`nav-${id}`);
+  if (navBtn) navBtn.classList.add('active');
+
+  const mnavBtn = document.getElementById(`mnav-${id}`);
+  if (mnavBtn) mnavBtn.classList.add('active');
+
+  document.getElementById('search-results').classList.remove('active');
+  updateProgress(id);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleCard(card) {
+  const wasOpen = card.classList.contains('open');
+  card.classList.toggle('open');
+  const btn = card.querySelector('.card-toggle');
+  btn.textContent = card.classList.contains('open') ? '−' : '+';
+  updateProgress(activeTopicId);
+}
+
+function filterCards(type, btn, topicId) {
+  btn.closest('.controls').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  const grid = document.getElementById(`grid-${topicId}`);
+  grid.querySelectorAll('.card').forEach(card => {
+    const pos = card.querySelector('.card-pos').textContent.toLowerCase();
+    if (type === 'all') {
+      card.style.display = '';
+    } else if (type === 'noun') {
+      card.style.display = pos.includes('n.') ? '' : 'none';
+    } else if (type === 'verb') {
+      card.style.display = pos.includes('v.') ? '' : 'none';
+    } else if (type === 'adj') {
+      card.style.display = pos.includes('adj') ? '' : 'none';
+    }
+  });
+}
+
+function toggleExpandAll(topicId, btn) {
+  const grid = document.getElementById(`grid-${topicId}`);
+  const cards = grid.querySelectorAll('.card');
+  const anyOpen = [...cards].some(c => c.classList.contains('open'));
+
+  cards.forEach(card => {
+    card.classList.toggle('open', !anyOpen);
+    card.querySelector('.card-toggle').textContent = !anyOpen ? '−' : '+';
+  });
+
+  btn.textContent = anyOpen ? 'Expand all' : 'Collapse all';
+  updateProgress(topicId);
+}
+
+function updateProgress(topicId) {
+  const grid = document.getElementById(`grid-${topicId}`);
+  if (!grid) return;
+  const cards = grid.querySelectorAll('.card');
+  const open = [...cards].filter(c => c.classList.contains('open')).length;
+  const pct = cards.length > 0 ? (open / cards.length) * 100 : 0;
+  const bar = document.getElementById(`prog-${topicId}`);
+  if (bar) bar.style.width = pct + '%';
+}
+
+// ── Search ──────────────────────────────────────────────────
+document.getElementById('searchInput').addEventListener('input', function () {
+  const q = this.value.trim().toLowerCase();
+  const resultsDiv = document.getElementById('search-results');
+
+  if (!q) {
+    resultsDiv.classList.remove('active');
+    document.querySelectorAll('.topic-section').forEach(s => {
+      if (s.id === `topic-${activeTopicId}`) s.classList.add('active');
+    });
+    return;
+  }
+
+  document.querySelectorAll('.topic-section').forEach(s => s.classList.remove('active'));
+  resultsDiv.classList.add('active');
+
+  const hits = [];
+  topics.forEach(t => {
+    t.words.forEach(w => {
+      if (w.w.toLowerCase().includes(q) || w.def.toLowerCase().includes(q) || w.ex.toLowerCase().includes(q)) {
+        hits.push({ ...w, topicTitle: t.title, topicIcon: t.icon });
+      }
+    });
+  });
+
+  if (hits.length === 0) {
+    resultsDiv.innerHTML = `<div class="search-result-header">Search: "${this.value}"</div><p class="no-results">No results found. Try a different word or phrase.</p>`;
+    return;
+  }
+
+  const cardsHtml = hits.map(w => `
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-top">
+        <div class="card-word-wrap">
+          <div class="card-word">${w.w}</div>
+          <span class="card-pos">${w.pos}</span>
+        </div>
+        <button class="card-toggle" tabindex="-1" aria-hidden="true">+</button>
+      </div>
+      <div class="card-def">${w.def}</div>
+      <div class="card-example"><div class="card-example-inner">${w.ex}</div></div>
+    </div>`).join('');
+
+  resultsDiv.innerHTML = `
+    <div class="search-result-header">${hits.length} result${hits.length !== 1 ? 's' : ''} for "${this.value}"</div>
+    <div class="vocab-grid">${cardsHtml}</div>`;
+});
+
+init();
+</script>
+</body>
+</html>
